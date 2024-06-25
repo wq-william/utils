@@ -12,6 +12,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import hz.wq.utils.ui.theme.UtilsTheme
+import hz.wq.utilslbrary.log.LogUtils
+import hz.wq.utilslbrary.log.wqLog
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,12 +27,16 @@ class MainActivity : ComponentActivity() {
             UtilsTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = if (BuildConfig.DEBUG) "Android222  LogUtil.isDebug():${LogUtils.isDebug()}" else "release LogUtil.isDebug():${LogUtils.isDebug()}",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
             }
         }
+        for (i in 0 until 100) {
+            "hello".wqLog()
+        }
+
     }
 }
 
@@ -42,6 +52,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     UtilsTheme {
-        Greeting("Android")
+        Greeting(if (BuildConfig.DEBUG) "Android" else "release")
     }
 }
