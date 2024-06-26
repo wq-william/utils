@@ -8,7 +8,7 @@ publishing {
         create<MavenPublication>("release") {
             groupId = "io.github.wq-william"
             artifactId = "utils"
-            version = "0.0.1"
+            version = "0.0.2"
             afterEvaluate {
                 from(components["release"])
             }
@@ -71,7 +71,6 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
         debug {
-//            ...
             enableUnitTestCoverage = true
         }
     }
@@ -94,4 +93,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
+
+    // if u use AndroidX, use the following
+    api("com.blankj:utilcodex:1.31.1")
 }

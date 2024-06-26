@@ -1,7 +1,7 @@
 package hz.wq.utilslbrary
 
 import hz.wq.utilslbrary.log.LogUtils
-import hz.wq.utilslbrary.log.wqLog
+import hz.wq.utilslbrary.log.LogUtils.wqLog
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 
@@ -14,6 +14,7 @@ import org.junit.Test
 class LogTest {
 
     init {
+//        LogUtils.isDebug = true
         LogUtils.isAndroidLog = false
     }
 
