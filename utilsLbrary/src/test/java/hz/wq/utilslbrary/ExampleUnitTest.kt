@@ -1,9 +1,5 @@
 package hz.wq.utilslbrary
 
-import com.orhanobut.logger.AndroidLogAdapter
-import com.orhanobut.logger.FormatStrategy
-import com.orhanobut.logger.Logger
-import com.orhanobut.logger.PrettyFormatStrategy
 import org.junit.Test
 
 import org.junit.Assert.*

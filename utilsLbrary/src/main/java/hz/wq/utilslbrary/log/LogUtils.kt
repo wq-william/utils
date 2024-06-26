@@ -8,20 +8,21 @@ import hz.wq.utilslbrary.BuildConfig
  * 描述: 日志工具类
  */
 fun String.wqLog() {
+
     if (LogUtils.isAndroidLog) {
         if (LogUtils.isDebug()) {
-            var clickStr = getClickStr()
-            Log.i("wq", "$clickStr ${this}")
+            var clickStr = getClickStr(4)
+            Log.i("wq", "$clickStr $this")
         }
     } else {
-        var clickStr = getClickStr()
-        println("$clickStr ${this} ")
+        var clickStr = getClickStr(3)
+        println("$clickStr $this ")
     }
 }
 
-private fun getClickStr(): String {
+private fun getClickStr(stackTraceIndex: Int): String {
     val stackTrace = Thread.currentThread().stackTrace
-    val previousMethod = stackTrace[4]
+    val previousMethod = stackTrace[stackTraceIndex]
     var clickStr = "wqLog.(${previousMethod.fileName}:${previousMethod.lineNumber})"
     return clickStr
 }
